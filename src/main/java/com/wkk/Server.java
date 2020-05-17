@@ -30,12 +30,16 @@ public class Server {
                         new OutputStreamWriter(client.getOutputStream()));
 
                 // 读取客户端数据
-                String msg = reader.readLine();
-                if (!msg.equalsIgnoreCase(QUIET)) {
+                String msg = null;
+                while (((msg = reader.readLine()) != null)) {
+
                     System.out.println("[客户端 " + client.getPort() + "发送数据 " + msg + "]");
                     // 返回个客户端数据
-                    writer.write("echo " + msg + "\n");
+                    writer.write("{ echo " + msg + "} \n");
                     writer.flush();
+                    if(QUIET.equalsIgnoreCase(msg)){
+                        break;
+                    }
                 }
             }
         } catch (IOException e) {

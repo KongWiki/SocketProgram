@@ -26,15 +26,19 @@ public class Client {
                 BufferedReader consoleReader = new BufferedReader(new InputStreamReader(System.in));
         ) {
 
-            // 获取输入信息
-            String input = consoleReader.readLine();
-
-            // 发送给服务器
-            writer.write(input + "\n");
-            writer.flush();
-            // 获取服务器数据
-            String accept = reader.readLine();
-            System.out.println("[服务器 发送数据 " + accept + "]");
+            while (true) {
+                String input = consoleReader.readLine();
+                // 发送给服务器
+                writer.write(input + "\n");
+                writer.flush();
+                // 输出服务器返回数据
+                String accept = reader.readLine();
+                System.out.println("[服务器 发送数据 " + accept + "]");
+                // 查看是否退出
+                if(QUIET.equalsIgnoreCase(input)){
+                    break;
+                }
+            }
 
         } catch (IOException e) {
             e.printStackTrace();
