@@ -31,7 +31,7 @@ public class UserInputHandler implements Runnable, Constant {
                 // 向服务器发送输入数据
                 chatClient.send(input);
 
-                if (chatClient.readyQuit(input)) {
+                if(chatClient.readyQuit(input)){
                     break;
                 }
 

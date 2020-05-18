@@ -1,6 +1,8 @@
 package com.wkk.chatbio.client;
 
+import com.sun.xml.internal.bind.v2.TODO;
 import com.wkk.chatbio.Constant;
+import edu.princeton.cs.algs4.Out;
 
 import java.io.*;
 import java.net.Socket;
@@ -62,9 +64,10 @@ public class ChatClient implements Constant {
 
             // 读取服务器数据
             String msg = null;
-            while ((msg = receive()) != null) {
+            while ((msg = receive()) != null){
                 System.out.println(msg);
             }
+
 
         } catch (IOException e) {
             e.printStackTrace();
