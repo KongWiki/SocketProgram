@@ -1,7 +1,6 @@
-package com.wkk.chatnio;
+package com.wkk.chatnio.copy;
 
 import java.io.*;
-import java.nio.channels.Channel;
 import java.nio.channels.FileChannel;
 
 /**
